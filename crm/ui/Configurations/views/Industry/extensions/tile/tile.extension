@@ -1,0 +1,5 @@
+{
+	"description": "Configurations tiles",
+	"extensionPoint": "launchpad-crm-tiles",
+	"module": "crm/ui/Configurations/views/Industry/extensions/tile/tile.js"
+}

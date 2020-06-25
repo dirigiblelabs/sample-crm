@@ -1,0 +1,5 @@
+{
+	"description": "UoM view",
+	"extensionPoint": "launchpad-crm-Configurations-view",
+	"module": "crm/ui/Configurations/views/UoM/extensions/view.js"
+}

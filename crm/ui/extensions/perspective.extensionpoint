@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the crm Perspective Providers",
+	"name": "launchpad-crm-perspective"
+}

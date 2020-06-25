@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the crm Menu Providers",
+	"name": "launchpad-crm-menu"
+}

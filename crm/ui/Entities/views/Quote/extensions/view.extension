@@ -1,0 +1,5 @@
+{
+	"description": "Quote view",
+	"extensionPoint": "launchpad-crm-Entities-view",
+	"module": "crm/ui/Entities/views/Quote/extensions/view.js"
+}

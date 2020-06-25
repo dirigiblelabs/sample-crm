@@ -1,0 +1,5 @@
+{
+	"description": "Quote menu",
+	"extensionPoint": "shell-crm-menu",
+	"module": "crm/views/Quote/menu/item.js"
+}

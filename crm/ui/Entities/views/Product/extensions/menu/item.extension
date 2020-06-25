@@ -1,0 +1,5 @@
+{
+	"description": "Product menu",
+	"extensionPoint": "shell-crm-menu",
+	"module": "crm/views/Product/menu/item.js"
+}

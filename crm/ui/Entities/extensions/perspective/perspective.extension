@@ -1,0 +1,5 @@
+{
+	"description": "Entities perspective",
+	"extensionPoint": "launchpad-crm-perspective",
+	"module": "crm/ui/Entities/extensions/perspective/perspective.js"
+}

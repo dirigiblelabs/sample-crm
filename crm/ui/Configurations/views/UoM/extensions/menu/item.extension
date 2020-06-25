@@ -1,0 +1,5 @@
+{
+	"description": "UoM menu",
+	"extensionPoint": "shell-crm-menu",
+	"module": "crm/views/UoM/menu/item.js"
+}

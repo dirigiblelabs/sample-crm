@@ -1,0 +1,5 @@
+{
+	"description": "Configurations perspective",
+	"extensionPoint": "launchpad-crm-perspective",
+	"module": "crm/ui/Configurations/extensions/perspective/perspective.js"
+}
