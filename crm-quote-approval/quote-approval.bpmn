@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="quote-approval" name="Quote Approval" isExecutable="true">
+    <startEvent id="sid-3334E861-7999-4B89-B8B0-11724BA17A3E"/>
+    <serviceTask id="sayHello" name="StartProcessTask" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
+      <extensionElements>
+        <flowable:field name="handler">
+          <flowable:string><![CDATA[crm-quote-approval/tasks/startProcessTask.js]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4" sourceRef="sid-3334E861-7999-4B89-B8B0-11724BA17A3E" targetRef="sayHello"/>
+    <endEvent id="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
+    <serviceTask id="sid-71FEFCD5-D770-474B-961C-74BCDB731F0D" name="SendNotificationTask" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
+      <extensionElements>
+        <flowable:field name="handler">
+          <flowable:string><![CDATA[crm-quote-approval/tasks/sendNotificationTask.js]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <exclusiveGateway id="sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF" default="sid-70B4F96C-150C-4B45-80F6-3327E8494B16"/>
+    <sequenceFlow id="sid-8F2E5C7F-9AAB-4283-83EC-0EC37BD39FC0" sourceRef="sayHello" targetRef="sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF"/>
+    <sequenceFlow id="sid-82DCAA45-7544-4AC4-9129-02BAD9FDD2C9" sourceRef="sid-71FEFCD5-D770-474B-961C-74BCDB731F0D" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
+    <serviceTask id="sid-0BA2A024-99D4-4213-9A83-DEE281D2BF98" name="AutoApproveTask" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
+      <extensionElements>
+        <flowable:field name="handler">
+          <flowable:string><![CDATA[crm-quote-approval/tasks/autoApprovalTask.js]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-BAA5AA13-614F-4DC3-BBA6-4871BDA868BB" sourceRef="sid-0BA2A024-99D4-4213-9A83-DEE281D2BF98" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
+    <sequenceFlow id="sid-70B4F96C-150C-4B45-80F6-3327E8494B16" sourceRef="sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF" targetRef="sid-0BA2A024-99D4-4213-9A83-DEE281D2BF98"/>
+    <sequenceFlow id="sid-228E36AF-A79D-423B-A879-1102434E8E3B" sourceRef="sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF" targetRef="sid-71FEFCD5-D770-474B-961C-74BCDB731F0D">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${amount >= 10}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_quote-approval">
+    <bpmndi:BPMNPlane bpmnElement="quote-approval" id="BPMNPlane_quote-approval">
+      <bpmndi:BPMNShape bpmnElement="sid-3334E861-7999-4B89-B8B0-11724BA17A3E" id="BPMNShape_sid-3334E861-7999-4B89-B8B0-11724BA17A3E">
+        <omgdc:Bounds height="30.0" width="30.0" x="103.0" y="78.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sayHello" id="BPMNShape_sayHello">
+        <omgdc:Bounds height="80.0" width="100.0" x="180.0" y="53.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD" id="BPMNShape_sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD">
+        <omgdc:Bounds height="28.0" width="28.0" x="600.0" y="150.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-71FEFCD5-D770-474B-961C-74BCDB731F0D" id="BPMNShape_sid-71FEFCD5-D770-474B-961C-74BCDB731F0D">
+        <omgdc:Bounds height="80.0" width="100.0" x="300.0" y="180.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF" id="BPMNShape_sid-E6D70321-5C0C-4254-BB38-A8CEFF4C23CF">
+        <omgdc:Bounds height="40.0" width="40.0" x="325.0" y="73.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-0BA2A024-99D4-4213-9A83-DEE281D2BF98" id="BPMNShape_sid-0BA2A024-99D4-4213-9A83-DEE281D2BF98">
+        <omgdc:Bounds height="80.0" width="100.0" x="420.0" y="52.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4" id="BPMNEdge_sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4">
+        <omgdi:waypoint x="132.94999854338204" y="93.0"/>
+        <omgdi:waypoint x="180.0" y="93.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-82DCAA45-7544-4AC4-9129-02BAD9FDD2C9" id="BPMNEdge_sid-82DCAA45-7544-4AC4-9129-02BAD9FDD2C9">
+        <omgdi:waypoint x="399.94999999999993" y="209.3939393939394"/>
+        <omgdi:waypoint x="600.3019235670204" y="166.89527524610617"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-BAA5AA13-614F-4DC3-BBA6-4871BDA868BB" id="BPMNEdge_sid-BAA5AA13-614F-4DC3-BBA6-4871BDA868BB">
+        <omgdi:waypoint x="519.95" y="116.97500000000002"/>
+        <omgdi:waypoint x="601.4661526753293" y="157.73764073837498"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-70B4F96C-150C-4B45-80F6-3327E8494B16" id="BPMNEdge_sid-70B4F96C-150C-4B45-80F6-3327E8494B16">
+        <omgdi:waypoint x="363.9093578358475" y="94.0309926374206"/>
+        <omgdi:waypoint x="419.99999999999955" y="95.64772439736372"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-8F2E5C7F-9AAB-4283-83EC-0EC37BD39FC0" id="BPMNEdge_sid-8F2E5C7F-9AAB-4283-83EC-0EC37BD39FC0">
+        <omgdi:waypoint x="279.9499999999977" y="93.21623376623376"/>
+        <omgdi:waypoint x="325.4130434782609" y="93.41304347826087"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-228E36AF-A79D-423B-A879-1102434E8E3B" id="BPMNEdge_sid-228E36AF-A79D-423B-A879-1102434E8E3B">
+        <omgdi:waypoint x="346.1509541984733" y="111.79231502669717"/>
+        <omgdi:waypoint x="348.57707509881425" y="180.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
