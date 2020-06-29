@@ -57,11 +57,11 @@
 					<form name="entityForm" ng-hide="actionType === 'delete'">
 						<div class="form-group">
 							<label>Name</label>
-							<input   type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name" ng-change="updateCalculatedProperties()">
+							<input required  type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name" ng-change="updateCalculatedProperties()">
 						</div>
 						<div class="form-group">
 							<label>Price</label>
-							<input   type="number" class="form-control" placeholder="Enter price" ng-model="entity.Price" ng-change="updateCalculatedProperties()">
+							<input required  type="number" class="form-control" placeholder="Enter price" ng-model="entity.Price" ng-change="updateCalculatedProperties()">
 						</div>
 						<div class="form-group">
 							<label>UoM</label>

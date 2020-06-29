@@ -14,18 +14,22 @@ var dao = daoApi.create({
 			name: "Name",
 			column: "ACCOUNT_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Country",
 			column: "ACCOUNT_COUNTRY",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "City",
 			column: "INDUSTRY_CITY",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Street",
 			column: "ACCOUNT_STREET",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Industry",
 			column: "ACCOUNT_INDUSTRY",

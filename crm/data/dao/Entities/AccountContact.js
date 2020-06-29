@@ -14,14 +14,17 @@ var dao = daoApi.create({
 			name: "AccountId",
 			column: "ACCOUNT_CONTACT_ACCOUNT",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "FirstName",
 			column: "ACCOUNT_CONTACT_FIRST_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "LastName",
 			column: "ACCOUNT_CONTACT_LAST_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Phone",
 			column: "ACCOUNT_CONTACT_PHONE",
@@ -30,14 +33,17 @@ var dao = daoApi.create({
 			name: "Email",
 			column: "ACCOUNT_CONTACT_EMAIL",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Country",
 			column: "ACCOUNT_CONTACT_COUNTRY",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "City",
 			column: "ACCOUNT_CONTACT_CITY",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Street",
 			column: "ACCOUNT_CONTACT_STREET",

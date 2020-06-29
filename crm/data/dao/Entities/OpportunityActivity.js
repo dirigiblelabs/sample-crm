@@ -15,18 +15,22 @@ var dao = daoApi.create({
 			name: "Opportunity",
 			column: "OPPORTUNITY_ACTIVITY_OPPORTUNITY",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "Account",
 			column: "OPPORTUNITY_ACTIVITY_ACCOUNT",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "Date",
 			column: "OPPORTUNITY_ACTIVITY_DATE",
 			type: "DATE",
+			required: true
 		}, {
 			name: "Status",
 			column: "OPPORTUNITY_ACTIVITY_STATUS",
 			type: "VARCHAR",
+			required: true
 		}]
 });
 

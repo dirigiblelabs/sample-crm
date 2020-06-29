@@ -127,29 +127,32 @@ angular.module('page')
 	};
 
 	$scope.create = function() {
-		$scope.entity.Opportunity = $scope.masterEntityId;
-		$http.post(api, JSON.stringify($scope.entity))
-		.success(function(data) {
-			$scope.loadPage($scope.dataPage);
-			toggleEntityModal();
-			$messageHub.messageEntityModified();
-		}).error(function(data) {
-			alert(JSON.stringify(data));
-		});
-			
+		if ($scope.entityForm.$valid) {
+			$scope.entity.Opportunity = $scope.masterEntityId;
+			$http.post(api, JSON.stringify($scope.entity))
+			.success(function(data) {
+				$scope.loadPage($scope.dataPage);
+				toggleEntityModal();
+				$messageHub.messageEntityModified();
+			}).error(function(data) {
+				alert(JSON.stringify(data));
+			});
+		}	
 	};
 
 	$scope.update = function() {
-		$scope.entity.Opportunity = $scope.masterEntityId;
+		if ($scope.entityForm.$valid) {
+			$scope.entity.Opportunity = $scope.masterEntityId;
 
-		$http.put(api + '/' + $scope.entity.Id, JSON.stringify($scope.entity))
-		.success(function(data) {
-			$scope.loadPage($scope.dataPage);
-			toggleEntityModal();
-			$messageHub.messageEntityModified();
-		}).error(function(data) {
-			alert(JSON.stringify(data));
-		})
+			$http.put(api + '/' + $scope.entity.Id, JSON.stringify($scope.entity))
+			.success(function(data) {
+				$scope.loadPage($scope.dataPage);
+				toggleEntityModal();
+				$messageHub.messageEntityModified();
+			}).error(function(data) {
+				alert(JSON.stringify(data));
+			})
+		}
 	};
 
 	$scope.delete = function() {

@@ -15,22 +15,18 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 64,
-                        "nullable": true,
                         "name": "ACCOUNT_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "ACCOUNT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "INDUSTRY_CITY"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "ACCOUNT_STREET"
                     }, {
                         "type": "INTEGER",
@@ -52,17 +48,14 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "ACCOUNT_ACTIVITY_ACCOUNT"
                     }, {
                         "type": "DATE",
                         "length": 20,
-                        "nullable": true,
                         "name": "ACCOUNT_ACTIVITY_DATE"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "ACCOUNT_ACTIVITY_NAME"
                     }, {
                         "type": "VARCHAR",
@@ -84,17 +77,14 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_ACCOUNT"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_FIRST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_LAST_NAME"
                     }, {
                         "type": "VARCHAR",
@@ -104,17 +94,14 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_EMAIL"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "ACCOUNT_CONTACT_CITY"
                     }, {
                         "type": "VARCHAR",
@@ -136,12 +123,10 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 64,
-                        "nullable": true,
                         "name": "INDUSTRY_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 64,
-                        "nullable": true,
                         "name": "INDUSTRY_CATEGORY"
                     }]
             }, {
@@ -158,12 +143,10 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "OPPORTUNITY_NAME"
                     }, {
                         "type": "DOUBLE",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_SIZE"
                     }]
             }, {
@@ -180,22 +163,18 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "OPPORTUNITY_ACTIVITY_OPPORTUNITY"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "OPPORTUNITY_ACTIVITY_ACCOUNT"
                     }, {
                         "type": "DATE",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_ACTIVITY_DATE"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_ACTIVITY_STATUS"
                     }]
             }, {
@@ -212,17 +191,14 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_OPPORTUNITY"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_FIRST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_LAST_NAME"
                     }, {
                         "type": "VARCHAR",
@@ -232,17 +208,14 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_EMAIL"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "OPPORTUNITY_CONTACT_CITY"
                     }, {
                         "type": "VARCHAR",
@@ -264,12 +237,10 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "QUOTE_ACCOUNT"
                     }, {
                         "type": "DOUBLE",
                         "length": 20,
-                        "nullable": true,
                         "name": "QUOTE_AMMOUNT"
                     }, {
                         "type": "DOUBLE",
@@ -279,17 +250,14 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "QUOTE_PRODUCT"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "QUOTE_UOM"
                     }, {
                         "type": "DOUBLE",
                         "length": 20,
-                        "nullable": true,
                         "name": "QUOTE_QUANTITY"
                     }, {
                         "type": "VARCHAR",
@@ -300,7 +268,6 @@
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "QUOTE_CURRENCY"
                     }]
             }, {
@@ -317,17 +284,14 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 32,
-                        "nullable": true,
                         "name": "PRODUCT_NAME"
                     }, {
                         "type": "DOUBLE",
                         "length": 20,
-                        "nullable": true,
                         "name": "PRODUCT_PRICE"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
                         "name": "PRODUCT_UOM"
                     }]
             }, {
@@ -344,7 +308,6 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "UOM_NAME"
                     }]
             }, {
@@ -361,7 +324,6 @@
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "CURRENCY_NAME"
                     }]
             }]

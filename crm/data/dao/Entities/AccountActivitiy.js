@@ -15,14 +15,17 @@ var dao = daoApi.create({
 			name: "Account",
 			column: "ACCOUNT_ACTIVITY_ACCOUNT",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "Date",
 			column: "ACCOUNT_ACTIVITY_DATE",
 			type: "DATE",
+			required: true
 		}, {
 			name: "Name",
 			column: "ACCOUNT_ACTIVITY_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Status",
 			column: "ACCOUNT_ACTIVITY_STATUS",

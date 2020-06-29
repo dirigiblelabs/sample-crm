@@ -14,10 +14,12 @@ var dao = daoApi.create({
 			name: "Account",
 			column: "QUOTE_ACCOUNT",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "Ammount",
 			column: "QUOTE_AMMOUNT",
 			type: "DOUBLE",
+			required: true
 		}, {
 			name: "Discount",
 			column: "QUOTE_DISCOUNT",
@@ -26,14 +28,17 @@ var dao = daoApi.create({
 			name: "Product",
 			column: "QUOTE_PRODUCT",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "UoM",
 			column: "QUOTE_UOM",
 			type: "INTEGER",
+			required: true
 		}, {
 			name: "Quantity",
 			column: "QUOTE_QUANTITY",
 			type: "DOUBLE",
+			required: true
 		}, {
 			name: "Status",
 			column: "QUOTE_STATUS",
@@ -42,6 +47,7 @@ var dao = daoApi.create({
 			name: "Currency",
 			column: "QUOTE_CURRENCY",
 			type: "INTEGER",
+			required: true
 		}]
 });
 

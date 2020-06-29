@@ -14,10 +14,12 @@ var dao = daoApi.create({
 			name: "Name",
 			column: "OPPORTUNITY_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Size",
 			column: "OPPORTUNITY_SIZE",
 			type: "DOUBLE",
+			required: true
 		}]
 });
 

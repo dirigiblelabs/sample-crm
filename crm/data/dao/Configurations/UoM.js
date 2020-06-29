@@ -14,6 +14,7 @@ var dao = daoApi.create({
 			name: "Name",
 			column: "UOM_NAME",
 			type: "VARCHAR",
+			required: true
 		}]
 });
 

@@ -14,14 +14,17 @@ var dao = daoApi.create({
 			name: "Name",
 			column: "PRODUCT_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Price",
 			column: "PRODUCT_PRICE",
 			type: "DOUBLE",
+			required: true
 		}, {
 			name: "UoM",
 			column: "PRODUCT_UOM",
 			type: "INTEGER",
+			required: true
 		}]
 });
 

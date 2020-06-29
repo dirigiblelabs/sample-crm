@@ -14,10 +14,12 @@ var dao = daoApi.create({
 			name: "Name",
 			column: "INDUSTRY_NAME",
 			type: "VARCHAR",
+			required: true
 		}, {
 			name: "Category",
 			column: "INDUSTRY_CATEGORY",
 			type: "VARCHAR",
+			required: true
 		}]
 });
 
