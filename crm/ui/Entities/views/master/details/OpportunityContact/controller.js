@@ -82,7 +82,7 @@ angular.module('page')
 		.success(function(data) {
 			$scope.dataCount = data;
 			$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-			$http.get(api + '?OpportunityId=' + $scope.masterEntityId + '&$offset=' + ((pageNumber - 1) * $scope.dataLimit) + '&$limit=' + $scope.dataLimit)
+			$http.get(api + '?Opportunity=' + $scope.masterEntityId + '&$offset=' + ((pageNumber - 1) * $scope.dataLimit) + '&$limit=' + $scope.dataLimit)
 			.success(function(data) {
 				$scope.data = data;
 			});
@@ -113,7 +113,7 @@ angular.module('page')
 	};
 
 	$scope.create = function() {
-		$scope.entity.OpportunityId = $scope.masterEntityId;
+		$scope.entity.Opportunity = $scope.masterEntityId;
 		$http.post(api, JSON.stringify($scope.entity))
 		.success(function(data) {
 			$scope.loadPage($scope.dataPage);
@@ -126,7 +126,7 @@ angular.module('page')
 	};
 
 	$scope.update = function() {
-		$scope.entity.OpportunityId = $scope.masterEntityId;
+		$scope.entity.Opportunity = $scope.masterEntityId;
 
 		$http.put(api + '/' + $scope.entity.Id, JSON.stringify($scope.entity))
 		.success(function(data) {

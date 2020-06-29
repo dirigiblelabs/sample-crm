@@ -24,12 +24,12 @@
 					<th>#</th>
 					<th class="text-capitalize">Account</th>
 					<th class="text-capitalize">Ammount</th>
-					<th class="text-capitalize">Curency</th>
 					<th class="text-capitalize">Discount</th>
 					<th class="text-capitalize">Product</th>
 					<th class="text-capitalize">UoM</th>
 					<th class="text-capitalize">Quantity</th>
 					<th class="text-capitalize">Status</th>
+					<th class="text-capitalize">Currency</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -38,12 +38,12 @@
 					<td>{{(dataPage - 1) * dataLimit + $index + 1}}</td>
 					<td>{{accountOptionValue(next.Account)}}</td>
 					<td>{{next.Ammount}}</td>
-					<td>{{next.Curency}}</td>
 					<td>{{next.Discount}}</td>
 					<td>{{productOptionValue(next.Product)}}</td>
 					<td>{{uomOptionValue(next.UoM)}}</td>
 					<td>{{next.Quantity}}</td>
 					<td>{{next.Status}}</td>
+					<td>{{currencyOptionValue(next.Currency)}}</td>
 					<td>
 						<i class="close fa fa-remove" ng-click="openDeleteDialog(next)" style="font-size: 1.4em"></i>
 						<i class="close fa fa-bars" ng-click="openEditDialog(next)" style="margin-right: 0.5em; font-size: 1.4em"></i>					</td>
@@ -64,22 +64,18 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form ng-hide="actionType === 'delete'">
+					<form name="entityForm" ng-hide="actionType === 'delete'">
 						<div class="form-group">
 							<label>Account</label>
 							<select  class="form-control" ng-options="o.Id as o.Name for o in accountOptions" ng-model="entity.Account" ng-change="updateCalculatedProperties()"></select>
 						</div>
 						<div class="form-group">
 							<label>Ammount</label>
-							<input  type="text" class="form-control" placeholder="Enter ammount" ng-model="entity.Ammount" ng-change="updateCalculatedProperties()">
-						</div>
-						<div class="form-group">
-							<label>Curency</label>
-							<input  type="text" class="form-control" placeholder="Enter curency" ng-model="entity.Curency" ng-change="updateCalculatedProperties()">
+							<input   type="number" class="form-control" placeholder="Enter ammount" ng-model="entity.Ammount" ng-change="updateCalculatedProperties()">
 						</div>
 						<div class="form-group">
 							<label>Discount</label>
-							<input  type="text" class="form-control" placeholder="Enter discount" ng-model="entity.Discount" ng-change="updateCalculatedProperties()">
+							<input   type="number" class="form-control" placeholder="Enter discount" ng-model="entity.Discount" ng-change="updateCalculatedProperties()">
 						</div>
 						<div class="form-group">
 							<label>Product</label>
@@ -91,22 +87,29 @@
 						</div>
 						<div class="form-group">
 							<label>Quantity</label>
-							<input  type="text" class="form-control" placeholder="Enter quantity" ng-model="entity.Quantity" ng-change="updateCalculatedProperties()">
+							<input   type="number" class="form-control" placeholder="Enter quantity" ng-model="entity.Quantity" ng-change="updateCalculatedProperties()">
 						</div>
 						<div class="form-group">
 							<label>Status</label>
-							<input  type="text" class="form-control" placeholder="Enter status" ng-model="entity.Status" ng-change="updateCalculatedProperties()">
+							<input   type="text" class="form-control" placeholder="Enter status" ng-model="entity.Status" ng-change="updateCalculatedProperties()">
+						</div>
+						<div class="form-group">
+							<label>Currency</label>
+							<select  class="form-control" ng-options="o.Id as o.Name for o in currencyOptions" ng-model="entity.Currency" ng-change="updateCalculatedProperties()"></select>
+						</div>
+						<div class="modal-footer">
+							<input type="submit" value="Save" class="btn btn-primary btn-lg" ng-show="actionType === 'new'" ng-click="create()">
+							<input type="submit" value="Update" class="btn btn-primary btn-lg" ng-show="actionType === 'update'" ng-click="update()">
+							<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
 						</div>
 					</form>
 					<div ng-show="actionType === 'delete'">
 						You are going to delete <b>Quote</b> with <b>Id = {{entity.Id}}</b>.
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'new'" ng-click="create()">Save</button>
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'update'" ng-click="update()">Update</button>
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'delete'" ng-click="delete()">Delete</button>
-					<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+					<div class="modal-footer" ng-show="actionType === 'delete'">
+						<button type="button" class="btn btn-primary btn-lg" ng-click="delete()">Delete</button>
+						<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>

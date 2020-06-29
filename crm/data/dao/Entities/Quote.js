@@ -3,45 +3,45 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "QUOTE",
+	table: "CRM_QUOTE",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "QUOTE_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
 			name: "Account",
-			column: "ACCOUNT",
+			column: "QUOTE_ACCOUNT",
 			type: "INTEGER",
 		}, {
 			name: "Ammount",
-			column: "AMMOUNT",
-			type: "VARCHAR",
-		}, {
-			name: "Curency",
-			column: "CURENCY",
-			type: "VARCHAR",
+			column: "QUOTE_AMMOUNT",
+			type: "DOUBLE",
 		}, {
 			name: "Discount",
-			column: "DISCOUNT",
-			type: "VARCHAR",
+			column: "QUOTE_DISCOUNT",
+			type: "DOUBLE",
 		}, {
 			name: "Product",
-			column: "PRODUCT",
+			column: "QUOTE_PRODUCT",
 			type: "INTEGER",
 		}, {
 			name: "UoM",
-			column: "UOM",
+			column: "QUOTE_UOM",
 			type: "INTEGER",
 		}, {
 			name: "Quantity",
-			column: "QUANTITY",
-			type: "VARCHAR",
+			column: "QUOTE_QUANTITY",
+			type: "DOUBLE",
 		}, {
 			name: "Status",
-			column: "STATUS",
+			column: "QUOTE_STATUS",
 			type: "VARCHAR",
+		}, {
+			name: "Currency",
+			column: "QUOTE_CURRENCY",
+			type: "INTEGER",
 		}]
 });
 
@@ -56,10 +56,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "QUOTE",
+		table: "CRM_QUOTE",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "QUOTE_ID",
 			value: id
 		}
 	});
@@ -69,10 +69,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "QUOTE",
+		table: "CRM_QUOTE",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "QUOTE_ID",
 			value: entity.Id
 		}
 	});
@@ -81,10 +81,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "QUOTE",
+		table: "CRM_QUOTE",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "QUOTE_ID",
 			value: id
 		}
 	});
@@ -95,7 +95,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM QUOTE");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_QUOTE");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

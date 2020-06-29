@@ -3,24 +3,24 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "PRODUCT",
+	table: "CRM_PRODUCT",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "PRODUCT_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
 			name: "Name",
-			column: "NAME",
+			column: "PRODUCT_NAME",
 			type: "VARCHAR",
 		}, {
 			name: "Price",
-			column: "PRICE",
-			type: "VARCHAR",
+			column: "PRODUCT_PRICE",
+			type: "DOUBLE",
 		}, {
 			name: "UoM",
-			column: "UOM",
+			column: "PRODUCT_UOM",
 			type: "INTEGER",
 		}]
 });
@@ -36,10 +36,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "PRODUCT",
+		table: "CRM_PRODUCT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "PRODUCT_ID",
 			value: id
 		}
 	});
@@ -49,10 +49,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "PRODUCT",
+		table: "CRM_PRODUCT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "PRODUCT_ID",
 			value: entity.Id
 		}
 	});
@@ -61,10 +61,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "PRODUCT",
+		table: "CRM_PRODUCT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "PRODUCT_ID",
 			value: id
 		}
 	});
@@ -75,7 +75,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM PRODUCT");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_PRODUCT");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

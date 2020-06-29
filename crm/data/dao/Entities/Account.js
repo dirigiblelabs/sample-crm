@@ -3,32 +3,32 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "ACCOUNT",
+	table: "CRM_ACCOUNT",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
 			name: "Name",
-			column: "NAME",
+			column: "ACCOUNT_NAME",
 			type: "VARCHAR",
 		}, {
 			name: "Country",
-			column: "COUNTRY",
+			column: "ACCOUNT_COUNTRY",
 			type: "VARCHAR",
 		}, {
 			name: "City",
-			column: "CITY",
+			column: "INDUSTRY_CITY",
 			type: "VARCHAR",
 		}, {
 			name: "Street",
-			column: "STREET",
+			column: "ACCOUNT_STREET",
 			type: "VARCHAR",
 		}, {
 			name: "Industry",
-			column: "INDUSTRY",
+			column: "ACCOUNT_INDUSTRY",
 			type: "INTEGER",
 		}]
 });
@@ -44,10 +44,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "ACCOUNT",
+		table: "CRM_ACCOUNT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ID",
 			value: id
 		}
 	});
@@ -57,10 +57,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "ACCOUNT",
+		table: "CRM_ACCOUNT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ID",
 			value: entity.Id
 		}
 	});
@@ -69,10 +69,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "ACCOUNT",
+		table: "CRM_ACCOUNT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ID",
 			value: id
 		}
 	});
@@ -83,7 +83,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM ACCOUNT");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_ACCOUNT");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

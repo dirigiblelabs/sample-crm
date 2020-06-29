@@ -50,21 +50,24 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form ng-hide="actionType === 'delete'">
+					<form name="entityForm" ng-hide="actionType === 'delete'">
 						<div class="form-group">
 							<label>Name</label>
-							<input  type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name" ng-change="updateCalculatedProperties()">
+							<input   type="text" class="form-control" placeholder="Enter name" ng-model="entity.Name" ng-change="updateCalculatedProperties()">
+						</div>
+						<div class="modal-footer">
+							<input type="submit" value="Save" class="btn btn-primary btn-lg" ng-show="actionType === 'new'" ng-click="create()">
+							<input type="submit" value="Update" class="btn btn-primary btn-lg" ng-show="actionType === 'update'" ng-click="update()">
+							<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
 						</div>
 					</form>
 					<div ng-show="actionType === 'delete'">
 						You are going to delete <b>UoM</b> with <b>Id = {{entity.Id}}</b>.
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'new'" ng-click="create()">Save</button>
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'update'" ng-click="update()">Update</button>
-					<button type="button" class="btn btn-primary btn-lg" ng-show="actionType === 'delete'" ng-click="delete()">Delete</button>
-					<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+					<div class="modal-footer" ng-show="actionType === 'delete'">
+						<button type="button" class="btn btn-primary btn-lg" ng-click="delete()">Delete</button>
+						<button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>

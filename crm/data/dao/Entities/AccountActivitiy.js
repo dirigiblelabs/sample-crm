@@ -1,49 +1,56 @@
 var query = require("db/v4/query");
 var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
+var EntityUtils = require("crm/data/utils/EntityUtils");
 
 var dao = daoApi.create({
-	table: "ACCOUNT_ACTIVITIY",
+	table: "CRM_ACCOUNT_ACTIVITIY",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ACTIVITY_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
-			name: "AccountId",
-			column: "ACCOUNTID",
+			name: "Account",
+			column: "ACCOUNT_ACTIVITY_ACCOUNT",
 			type: "INTEGER",
 		}, {
 			name: "Date",
-			column: "DATE",
-			type: "VARCHAR",
+			column: "ACCOUNT_ACTIVITY_DATE",
+			type: "DATE",
 		}, {
 			name: "Name",
-			column: "NAME",
+			column: "ACCOUNT_ACTIVITY_NAME",
 			type: "VARCHAR",
 		}, {
 			name: "Status",
-			column: "STATUS",
+			column: "ACCOUNT_ACTIVITY_STATUS",
 			type: "VARCHAR",
 		}]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings);
+	return dao.list(settings).map(function(e) {
+		EntityUtils.setLocalDate(e, "Date");
+		return e;
+	});
 };
 
 exports.get = function(id) {
-	return dao.find(id);
+	var entity = dao.find(id);
+	EntityUtils.setLocalDate(entity, "Date");
+	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setLocalDate(entity, "Date");
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "ACCOUNT_ACTIVITIY",
+		table: "CRM_ACCOUNT_ACTIVITIY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ACTIVITY_ID",
 			value: id
 		}
 	});
@@ -51,12 +58,13 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	EntityUtils.setLocalDate(entity, "Date");
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "ACCOUNT_ACTIVITIY",
+		table: "CRM_ACCOUNT_ACTIVITIY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ACTIVITY_ID",
 			value: entity.Id
 		}
 	});
@@ -65,10 +73,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "ACCOUNT_ACTIVITIY",
+		table: "CRM_ACCOUNT_ACTIVITIY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_ACTIVITY_ID",
 			value: id
 		}
 	});
@@ -79,7 +87,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM ACCOUNT_ACTIVITIY");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_ACCOUNT_ACTIVITIY");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

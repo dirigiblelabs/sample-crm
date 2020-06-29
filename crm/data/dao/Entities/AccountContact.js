@@ -3,44 +3,44 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "ACCOUNT_CONTACT",
+	table: "CRM_ACCOUNT_CONTACT",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_CONTACT_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
 			name: "AccountId",
-			column: "ACCOUNTID",
+			column: "ACCOUNT_CONTACT_ACCOUNT",
 			type: "INTEGER",
 		}, {
 			name: "FirstName",
-			column: "FIRSTNAME",
+			column: "ACCOUNT_CONTACT_FIRST_NAME",
 			type: "VARCHAR",
 		}, {
 			name: "LastName",
-			column: "LASTNAME",
+			column: "ACCOUNT_CONTACT_LAST_NAME",
 			type: "VARCHAR",
 		}, {
 			name: "Phone",
-			column: "PHONE",
+			column: "ACCOUNT_CONTACT_PHONE",
 			type: "VARCHAR",
 		}, {
 			name: "Email",
-			column: "EMAIL",
+			column: "ACCOUNT_CONTACT_EMAIL",
 			type: "VARCHAR",
 		}, {
 			name: "Country",
-			column: "COUNTRY",
+			column: "ACCOUNT_CONTACT_COUNTRY",
 			type: "VARCHAR",
 		}, {
 			name: "City",
-			column: "CITY",
+			column: "ACCOUNT_CONTACT_CITY",
 			type: "VARCHAR",
 		}, {
 			name: "Street",
-			column: "STREET",
+			column: "ACCOUNT_CONTACT_STREET",
 			type: "VARCHAR",
 		}]
 });
@@ -56,10 +56,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "ACCOUNT_CONTACT",
+		table: "CRM_ACCOUNT_CONTACT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_CONTACT_ID",
 			value: id
 		}
 	});
@@ -69,10 +69,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "ACCOUNT_CONTACT",
+		table: "CRM_ACCOUNT_CONTACT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_CONTACT_ID",
 			value: entity.Id
 		}
 	});
@@ -81,10 +81,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "ACCOUNT_CONTACT",
+		table: "CRM_ACCOUNT_CONTACT",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "ACCOUNT_CONTACT_ID",
 			value: id
 		}
 	});
@@ -95,7 +95,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM ACCOUNT_CONTACT");
+	var resultSet = query.execute("SELECT COUNT(*) FROM AS COUNT CRM_ACCOUNT_CONTACT");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

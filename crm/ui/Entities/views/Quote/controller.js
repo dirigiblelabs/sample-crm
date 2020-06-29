@@ -46,6 +46,9 @@ angular.module('page')
 		onUoMModified: function(callback) {
 			on('crm.Entities.UoM.modified', callback);
 		},
+		onCurrencyModified: function(callback) {
+			on('crm.Entities.Currency.modified', callback);
+		},
 		messageEntityModified: function() {
 			message('modified');
 		}
@@ -57,12 +60,15 @@ angular.module('page')
 	var accountOptionsApi = '../../../../../../../../services/v4/js/crm/api/Entities/Account.js';
 	var productOptionsApi = '../../../../../../../../services/v4/js/crm/api/Entities/Product.js';
 	var uomOptionsApi = '../../../../../../../../services/v4/js/crm/api/Configurations/UoM.js';
+	var currencyOptionsApi = '../../../../../../../../services/v4/js/crm/api/Configurations/Currency.js';
 
 	$scope.accountOptions = [];
 
 	$scope.productOptions = [];
 
 	$scope.uomOptions = [];
+
+	$scope.currencyOptions = [];
 
 	$scope.dateOptions = {
 		startingDay: 1
@@ -93,6 +99,14 @@ angular.module('page')
 		});
 	}
 	uomOptionsLoad();
+
+	function currencyOptionsLoad() {
+		$http.get(currencyOptionsApi)
+		.success(function(data) {
+			$scope.currencyOptions = data;
+		});
+	}
+	currencyOptionsLoad();
 
 	$scope.dataPage = 1;
 	$scope.dataCount = 0;
@@ -153,27 +167,30 @@ angular.module('page')
 	};
 
 	$scope.create = function() {
-		$http.post(api, JSON.stringify($scope.entity))
-		.success(function(data) {
-			$scope.loadPage($scope.dataPage);
-			toggleEntityModal();
-			$messageHub.messageEntityModified();
-		}).error(function(data) {
-			alert(JSON.stringify(data));
-		});
-			
+		if ($scope.entityForm.$valid) {
+			$http.post(api, JSON.stringify($scope.entity))
+			.success(function(data) {
+				$scope.loadPage($scope.dataPage);
+				toggleEntityModal();
+				$messageHub.messageEntityModified();
+			}).error(function(data) {
+				alert(JSON.stringify(data));
+			});
+		}
 	};
 
 	$scope.update = function() {
-		$http.put(api + '/' + $scope.entity.Id, JSON.stringify($scope.entity))
+		if ($scope.entityForm.$valid) {
+			$http.put(api + '/' + $scope.entity.Id, JSON.stringify($scope.entity))
 
-		.success(function(data) {
-			$scope.loadPage($scope.dataPage);
-			toggleEntityModal();
-			$messageHub.messageEntityModified();
-		}).error(function(data) {
-			alert(JSON.stringify(data));
-		})
+			.success(function(data) {
+				$scope.loadPage($scope.dataPage);
+				toggleEntityModal();
+				$messageHub.messageEntityModified();
+			}).error(function(data) {
+				alert(JSON.stringify(data));
+			})
+		}
 	};
 
 	$scope.delete = function() {
@@ -215,11 +232,20 @@ angular.module('page')
 		}
 		return null;
 	};
+	$scope.currencyOptionValue = function(optionKey) {
+		for (var i = 0 ; i < $scope.currencyOptions.length; i ++) {
+			if ($scope.currencyOptions[i].Id === optionKey) {
+				return $scope.currencyOptions[i].Name;
+			}
+		}
+		return null;
+	};
 
 	$messageHub.onEntityRefresh($scope.loadPage($scope.dataPage));
 	$messageHub.onAccountModified(accountOptionsLoad);
 	$messageHub.onProductModified(productOptionsLoad);
 	$messageHub.onUoMModified(uomOptionsLoad);
+	$messageHub.onCurrencyModified(currencyOptionsLoad);
 
 	function toggleEntityModal() {
 		$('#entityModal').modal('toggle');

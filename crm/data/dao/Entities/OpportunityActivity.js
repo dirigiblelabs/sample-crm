@@ -1,49 +1,56 @@
 var query = require("db/v4/query");
 var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
+var EntityUtils = require("crm/data/utils/EntityUtils");
 
 var dao = daoApi.create({
-	table: "OPPORTUNITYACTIVITY",
+	table: "CRM_OPPORTUNITY_ACTIVITY",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "OPPORTUNITY_ACTIVITY_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
-			name: "OpportunityId",
-			column: "OPPORTUNITYID",
+			name: "Opportunity",
+			column: "OPPORTUNITY_ACTIVITY_OPPORTUNITY",
 			type: "INTEGER",
 		}, {
 			name: "Account",
-			column: "ACCOUNT",
+			column: "OPPORTUNITY_ACTIVITY_ACCOUNT",
 			type: "INTEGER",
 		}, {
 			name: "Date",
-			column: "DATE",
-			type: "VARCHAR",
+			column: "OPPORTUNITY_ACTIVITY_DATE",
+			type: "DATE",
 		}, {
 			name: "Status",
-			column: "STATUS",
+			column: "OPPORTUNITY_ACTIVITY_STATUS",
 			type: "VARCHAR",
 		}]
 });
 
 exports.list = function(settings) {
-	return dao.list(settings);
+	return dao.list(settings).map(function(e) {
+		EntityUtils.setLocalDate(e, "Date");
+		return e;
+	});
 };
 
 exports.get = function(id) {
-	return dao.find(id);
+	var entity = dao.find(id);
+	EntityUtils.setLocalDate(entity, "Date");
+	return entity;
 };
 
 exports.create = function(entity) {
+	EntityUtils.setLocalDate(entity, "Date");
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "OPPORTUNITYACTIVITY",
+		table: "CRM_OPPORTUNITY_ACTIVITY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "OPPORTUNITY_ACTIVITY_ID",
 			value: id
 		}
 	});
@@ -51,12 +58,13 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
+	EntityUtils.setLocalDate(entity, "Date");
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "OPPORTUNITYACTIVITY",
+		table: "CRM_OPPORTUNITY_ACTIVITY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "OPPORTUNITY_ACTIVITY_ID",
 			value: entity.Id
 		}
 	});
@@ -65,10 +73,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "OPPORTUNITYACTIVITY",
+		table: "CRM_OPPORTUNITY_ACTIVITY",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "OPPORTUNITY_ACTIVITY_ID",
 			value: id
 		}
 	});
@@ -79,7 +87,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM OPPORTUNITYACTIVITY");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_OPPORTUNITY_ACTIVITY");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

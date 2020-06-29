@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "ACCOUNT",
+                "name": "CRM_ACCOUNT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -11,35 +11,35 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "ACCOUNT_ID"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 64,
                         "nullable": true,
-                        "name": "NAME"
+                        "name": "ACCOUNT_NAME"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "COUNTRY"
+                        "name": "ACCOUNT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "CITY"
+                        "name": "INDUSTRY_CITY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "STREET"
+                        "name": "ACCOUNT_STREET"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "INDUSTRY"
+                        "name": "ACCOUNT_INDUSTRY"
                     }]
             }, {
-                "name": "ACCOUNT_ACTIVITIY",
+                "name": "CRM_ACCOUNT_ACTIVITIY",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -48,30 +48,30 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "ACCOUNT_ACTIVITY_ID"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "ACCOUNTID"
+                        "name": "ACCOUNT_ACTIVITY_ACCOUNT"
+                    }, {
+                        "type": "DATE",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ACCOUNT_ACTIVITY_DATE"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "ACCOUNT_ACTIVITY_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "DATE"
-                    }, {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "NAME"
-                    }, {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "STATUS"
+                        "name": "ACCOUNT_ACTIVITY_STATUS"
                     }]
             }, {
-                "name": "ACCOUNT_CONTACT",
+                "name": "CRM_ACCOUNT_CONTACT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -80,50 +80,50 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "ACCOUNT_CONTACT_ID"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "ACCOUNTID"
+                        "name": "ACCOUNT_CONTACT_ACCOUNT"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "FIRSTNAME"
+                        "name": "ACCOUNT_CONTACT_FIRST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "LASTNAME"
+                        "name": "ACCOUNT_CONTACT_LAST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "PHONE"
+                        "name": "ACCOUNT_CONTACT_PHONE"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "EMAIL"
+                        "name": "ACCOUNT_CONTACT_EMAIL"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "COUNTRY"
+                        "name": "ACCOUNT_CONTACT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "CITY"
+                        "name": "ACCOUNT_CONTACT_CITY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "STREET"
+                        "name": "ACCOUNT_CONTACT_STREET"
                     }]
             }, {
-                "name": "INDUSTRY",
+                "name": "CRM_INDUSTRY",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -132,20 +132,20 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "INDUSTRY_ID"
                     }, {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 64,
                         "nullable": true,
-                        "name": "NAME"
+                        "name": "INDUSTRY_NAME"
                     }, {
                         "type": "VARCHAR",
-                        "length": 40,
+                        "length": 64,
                         "nullable": true,
-                        "name": "CATEGORY"
+                        "name": "INDUSTRY_CATEGORY"
                     }]
             }, {
-                "name": "OPPORTUNITY",
+                "name": "CRM_OPPORTUNITY",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -154,20 +154,20 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "OPPORTUNITY_ID"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "NAME"
+                        "name": "OPPORTUNITY_NAME"
                     }, {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "nullable": true,
-                        "name": "SIZE"
+                        "name": "OPPORTUNITY_SIZE"
                     }]
             }, {
-                "name": "OPPORTUNITYACTIVITY",
+                "name": "CRM_OPPORTUNITY_ACTIVITY",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -176,30 +176,30 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "OPPORTUNITY_ACTIVITY_ID"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "OPPORTUNITYID"
+                        "name": "OPPORTUNITY_ACTIVITY_OPPORTUNITY"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "ACCOUNT"
+                        "name": "OPPORTUNITY_ACTIVITY_ACCOUNT"
+                    }, {
+                        "type": "DATE",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "OPPORTUNITY_ACTIVITY_DATE"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "DATE"
-                    }, {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "STATUS"
+                        "name": "OPPORTUNITY_ACTIVITY_STATUS"
                     }]
             }, {
-                "name": "OPPORTUNITYCONTACT",
+                "name": "CRM_OPPORTUNITY_CONTACT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -208,50 +208,50 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "OPPORTUNITY_CONTACT_ID"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "OPPORTUNITYID"
+                        "name": "OPPORTUNITY_CONTACT_OPPORTUNITY"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "FIRSTNAME"
+                        "name": "OPPORTUNITY_CONTACT_FIRST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "LASTNAME"
+                        "name": "OPPORTUNITY_CONTACT_LAST_NAME"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "PHONE"
+                        "name": "OPPORTUNITY_CONTACT_PHONE"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "EMAIL"
+                        "name": "OPPORTUNITY_CONTACT_EMAIL"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "COUNTRY"
+                        "name": "OPPORTUNITY_CONTACT_COUNTRY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "CITY"
+                        "name": "OPPORTUNITY_CONTACT_CITY"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "STREET"
+                        "name": "OPPORTUNITY_CONTACT_STREET"
                     }]
             }, {
-                "name": "QUOTE",
+                "name": "CRM_QUOTE",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -260,51 +260,51 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "QUOTE_ID"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "ACCOUNT"
+                        "name": "QUOTE_ACCOUNT"
                     }, {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "nullable": true,
-                        "name": "AMMOUNT"
+                        "name": "QUOTE_AMMOUNT"
                     }, {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "nullable": true,
-                        "name": "CURENCY"
-                    }, {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "DISCOUNT"
+                        "name": "QUOTE_DISCOUNT"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "PRODUCT"
+                        "name": "QUOTE_PRODUCT"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "UOM"
+                        "name": "QUOTE_UOM"
                     }, {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "nullable": true,
-                        "name": "QUANTITY"
+                        "name": "QUOTE_QUANTITY"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "defaultValue": "'In Progress'",
                         "nullable": true,
-                        "name": "STATUS"
+                        "name": "QUOTE_STATUS"
+                    }, {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "QUOTE_CURRENCY"
                     }]
             }, {
-                "name": "PRODUCT",
+                "name": "CRM_PRODUCT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -313,25 +313,25 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "PRODUCT_ID"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "nullable": true,
-                        "name": "NAME"
+                        "name": "PRODUCT_NAME"
                     }, {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "nullable": true,
-                        "name": "PRICE"
+                        "name": "PRODUCT_PRICE"
                     }, {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "UOM"
+                        "name": "PRODUCT_UOM"
                     }]
             }, {
-                "name": "UOM",
+                "name": "CRM_UOM",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -340,12 +340,29 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ID"
+                        "name": "UOM_ID"
                     }, {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "NAME"
+                        "name": "UOM_NAME"
+                    }]
+            }, {
+                "name": "CURRENCY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCY_ID"
+                    }, {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCY_NAME"
                     }]
             }]
     }

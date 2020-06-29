@@ -3,16 +3,16 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "UOM",
+	table: "CRM_UOM",
 	properties: [
 		{
 			name: "Id",
-			column: "ID",
+			column: "UOM_ID",
 			type: "INTEGER",
 			id: true,
 		}, {
 			name: "Name",
-			column: "NAME",
+			column: "UOM_NAME",
 			type: "VARCHAR",
 		}]
 });
@@ -28,10 +28,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "UOM",
+		table: "CRM_UOM",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "UOM_ID",
 			value: id
 		}
 	});
@@ -41,10 +41,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "UOM",
+		table: "CRM_UOM",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "UOM_ID",
 			value: entity.Id
 		}
 	});
@@ -53,10 +53,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "UOM",
+		table: "CRM_UOM",
 		key: {
 			name: "Id",
-			column: "ID",
+			column: "UOM_ID",
 			value: id
 		}
 	});
@@ -67,7 +67,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM UOM");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_UOM");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
