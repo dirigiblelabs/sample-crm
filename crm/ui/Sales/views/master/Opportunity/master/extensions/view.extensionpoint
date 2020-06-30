@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the Sales - Opportunity Master View Providers",
+	"name": "launchpad-crm-Sales-Opportunity-view"
+}

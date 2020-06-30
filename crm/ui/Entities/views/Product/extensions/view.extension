@@ -1,5 +1,0 @@
-{
-	"description": "Product view",
-	"extensionPoint": "launchpad-crm-Entities-view",
-	"module": "crm/ui/Entities/views/Product/extensions/view.js"
-}

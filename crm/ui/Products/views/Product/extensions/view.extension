@@ -1,0 +1,5 @@
+{
+	"description": "Product view",
+	"extensionPoint": "launchpad-crm-Products-view",
+	"module": "crm/ui/Products/views/Product/extensions/view.js"
+}

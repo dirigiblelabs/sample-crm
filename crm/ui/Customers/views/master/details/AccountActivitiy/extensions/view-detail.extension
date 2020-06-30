@@ -1,0 +1,5 @@
+{
+	"description": "AccountActivitiy view",
+	"extensionPoint": "launchpad-crm-Customers-Account-view",
+	"module": "crm/ui/Customers/views/master/details/AccountActivitiy/extensions/view.js"
+}

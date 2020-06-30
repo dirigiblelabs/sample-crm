@@ -1,5 +1,0 @@
-{
-	"description": "Entities tiles",
-	"extensionPoint": "launchpad-crm-tiles",
-	"module": "crm/ui/Entities/views/Account/extensions/tile/tile.js"
-}

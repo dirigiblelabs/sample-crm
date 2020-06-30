@@ -1,0 +1,5 @@
+{
+	"description": "Sales view",
+	"extensionPoint": "launchpad-crm-Sales-view",
+	"module": "crm/ui/Sales/views/master/Opportunity/extensions/view.js"
+}

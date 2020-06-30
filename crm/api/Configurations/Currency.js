@@ -13,10 +13,24 @@ rs.service()
 			var entities = dao.list(queryOptions);
 			http.sendResponseOk(entities);
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 	.resource("count")
 		.get(function(ctx, request) {
 			http.sendResponseOk(dao.count());
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 	.resource("{id}")
 		.get(function(ctx) {
 			var id = ctx.pathParameters.id;
@@ -27,6 +41,13 @@ rs.service()
 				http.sendResponseNotFound("Currency not found");
 			}
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 	.resource("")
 		.post(function(ctx, request, response) {
 			var entity = request.getJSON();
@@ -34,6 +55,13 @@ rs.service()
 			response.setHeader("Content-Location", "/services/v4/js/crm/api/Currency.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 	.resource("{id}")
 		.put(function(ctx, request) {
 			var entity = request.getJSON();
@@ -41,6 +69,13 @@ rs.service()
 			dao.update(entity);
 			http.sendResponseOk(entity);
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 	.resource("{id}")
 		.delete(function(ctx) {
 			var id = ctx.pathParameters.id;
@@ -52,4 +87,11 @@ rs.service()
 				http.sendResponseNotFound("Currency not found");
 			}
 		})
+		.catch(function(ctx, error) {
+            if (error.name === "ForbiddenError") {
+                http.sendForbiddenRequest(error.message);
+            } else {
+				http.sendResponseBadRequest(error.message);
+			}
+        })
 .execute();

@@ -80,11 +80,11 @@
                         "name": "ACCOUNT_CONTACT_ACCOUNT"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "name": "ACCOUNT_CONTACT_FIRST_NAME"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "name": "ACCOUNT_CONTACT_LAST_NAME"
                     }, {
                         "type": "VARCHAR",
@@ -93,7 +93,7 @@
                         "name": "ACCOUNT_CONTACT_PHONE"
                     }, {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 32,
                         "name": "ACCOUNT_CONTACT_EMAIL"
                     }, {
                         "type": "VARCHAR",
@@ -142,12 +142,16 @@
                         "name": "OPPORTUNITY_ID"
                     }, {
                         "type": "VARCHAR",
-                        "length": 32,
+                        "length": 64,
                         "name": "OPPORTUNITY_NAME"
                     }, {
                         "type": "DOUBLE",
                         "length": 20,
                         "name": "OPPORTUNITY_SIZE"
+                    }, {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "OPPORTUNITY_ACCOUNT"
                     }]
             }, {
                 "name": "CRM_OPPORTUNITY_ACTIVITY",
@@ -311,7 +315,7 @@
                         "name": "UOM_NAME"
                     }]
             }, {
-                "name": "CURRENCY",
+                "name": "CRM_CURRENCY",
                 "type": "TABLE",
                 "columns": [
                     {

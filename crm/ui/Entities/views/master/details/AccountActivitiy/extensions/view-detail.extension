@@ -1,5 +1,0 @@
-{
-	"description": "AccountActivitiy view",
-	"extensionPoint": "launchpad-crm-Entities-Account-view",
-	"module": "crm/ui/Entities/views/master/details/AccountActivitiy/extensions/view.js"
-}

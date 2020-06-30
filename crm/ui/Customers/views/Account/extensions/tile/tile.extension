@@ -1,0 +1,5 @@
+{
+	"description": "Customers tiles",
+	"extensionPoint": "launchpad-crm-tiles",
+	"module": "crm/ui/Customers/views/Account/extensions/tile/tile.js"
+}

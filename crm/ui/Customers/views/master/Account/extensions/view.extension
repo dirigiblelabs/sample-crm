@@ -1,0 +1,5 @@
+{
+	"description": "Customers view",
+	"extensionPoint": "launchpad-crm-Customers-view",
+	"module": "crm/ui/Customers/views/master/Account/extensions/view.js"
+}

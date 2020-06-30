@@ -1,5 +1,0 @@
-{
-	"description": "OpportunityContact view",
-	"extensionPoint": "launchpad-crm-Entities-Opportunity-view",
-	"module": "crm/ui/Entities/views/master/details/OpportunityContact/extensions/view.js"
-}

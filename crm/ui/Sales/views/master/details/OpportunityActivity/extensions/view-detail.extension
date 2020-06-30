@@ -1,0 +1,5 @@
+{
+	"description": "OpportunityActivity view",
+	"extensionPoint": "launchpad-crm-Sales-Opportunity-view",
+	"module": "crm/ui/Sales/views/master/details/OpportunityActivity/extensions/view.js"
+}

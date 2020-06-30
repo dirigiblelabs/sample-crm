@@ -14,7 +14,7 @@ exports.getTile = function(relativePath) {
 	return {
 		name: "UoM",
 		group: "Configurations",
-		icon: "file-o",
+		icon: "tags",
 		location: relativePath + "services/v4/web/crm/ui/Configurations/index.html",
 		count: dao.customDataCount(),
 		order: "1000"

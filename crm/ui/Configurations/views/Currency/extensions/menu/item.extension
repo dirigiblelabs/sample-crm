@@ -1,0 +1,5 @@
+{
+	"description": "Currency menu",
+	"extensionPoint": "shell-crm-menu",
+	"module": "crm/views/Currency/menu/item.js"
+}

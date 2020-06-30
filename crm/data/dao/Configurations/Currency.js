@@ -3,7 +3,7 @@ var producer = require("messaging/v4/producer");
 var daoApi = require("db/v4/dao");
 
 var dao = daoApi.create({
-	table: "CURRENCY",
+	table: "CRM_CURRENCY",
 	properties: [
 		{
 			name: "Id",
@@ -29,7 +29,7 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	var id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "CURRENCY",
+		table: "CRM_CURRENCY",
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",
@@ -42,7 +42,7 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "CURRENCY",
+		table: "CRM_CURRENCY",
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",
@@ -54,7 +54,7 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "CURRENCY",
+		table: "CRM_CURRENCY",
 		key: {
 			name: "Id",
 			column: "CURRENCY_ID",
@@ -68,7 +68,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	var resultSet = query.execute("SELECT COUNT(*) FROM CURRENCY");
+	var resultSet = query.execute("SELECT COUNT(*) AS COUNT FROM CRM_CURRENCY");
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

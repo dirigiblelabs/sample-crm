@@ -1,0 +1,5 @@
+{
+	"description": "Currency view",
+	"extensionPoint": "launchpad-crm-Configurations-view",
+	"module": "crm/ui/Configurations/views/Currency/extensions/view.js"
+}
