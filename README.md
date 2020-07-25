@@ -50,6 +50,8 @@ Required environment/configuration variables:
 
         > The first time, when mail is sent, a notification for "3rd party usage" in your Gmail mailbox will be sent, that needs to be confirmed.
 
+## Extend
+
 1. Extend the `Entity Data Model` (model.edm) file:
     - Switch to the `Workbench` perspective
     - Expand the `crm` project
@@ -82,6 +84,15 @@ Required environment/configuration variables:
     - Edit some of the account entries and enter the `HomePage` field
 
     ![sample-crm-add-home-page](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/4-sample-crm-add-home-page.gif)
+
+## Process
+
+1. Trigger the `Quote Approval` process
+    - Navigate to the `Sales` section and select the `Quote` tile
+    - Select the `Quote` tab, if needed
+    - Create new `Quote` with `Ammount` greater than `10`
+
+1. Update the mail message template
 
 ## Tips & Tricks
 
