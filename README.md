@@ -21,22 +21,6 @@ Required environment/configuration variables:
 | MAIL_PORT      | The mailbox port      |      465       |
 | MAIL_AUTH      | The mailbox auth      |      true      |
 
-
-Programatic setup:
-```javascript
-var config = require("core/v4/configurations");
-
-config.set("MAIL_USER", "<the-mail-user>");
-config.set("MAIL_PASSWORD", "<the-mail-password>");
-config.set("MAIL_RECIPIENT", "<the-mail-recipeint>");
-// config.set("MAIL_PROTOCOL", "smtps");
-// config.set("MAIL_HOST", "smtp.gmail.com");
-// config.set("MAIL_PORT", "465");
-// config.set("MAIL_AUTH", "true");
-```
-
-## Extend
-
 1. Setup Dirigible instance or use the trial one
     - https://www.dirigible.io/help/setup.html
     - https://www.dirigible.io -> `Try it Out`
@@ -47,6 +31,24 @@ config.set("MAIL_RECIPIENT", "<the-mail-recipeint>");
     - Click the `Clone` button
 
     ![sample-crm-git-clone](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/1-sample-crm-git-clone.gif)
+
+1. Setup a mail configuration:
+    - Expand the `crm-config` project
+    - Open `mail.js`
+    - Replace the following snippet with your values:
+        ```javascript
+        var mailUser = "<your-mail-user>";
+        var mailPassword = "<your-mail-password>";
+        var mailRecipient = "<the-mail-recipient>";
+        ```
+
+        ![sample-crm-mail-config](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/8-sample-crm-mail-config.gif)
+
+        > TIP: Since Google’s Gmail SMTP server is being used, you’ll have to make some adjustment to your Google security settings. You’ll have to turn on the “Less secure app access” so that this e-mail can go through to your inbox:
+
+        ![google_security_settings_border](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/google_security_settings_border.png)
+
+        > The first time, when mail is sent, a notification for "3rd party usage" in your Gmail mailbox will be sent, that needs to be confirmed.
 
 1. Extend the `Entity Data Model` (model.edm) file:
     - Switch to the `Workbench` perspective
@@ -107,6 +109,13 @@ drop table STUDENTS
 ```
 
 ![sample-crm-tips-and-tricks-2](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/6-sample-crm-tips-and-tricks-2.gif)
+
+In some cases the generated application view(s) may disappear or be closed by accident. To reset the default layout follow these steps:
+
+1. Click on the "Themese" menu
+1. Select the "Reset" option
+
+![sample-crm-tips-and-tricks-3](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/7-sample-crm-tips-and-tricks-3.gif)
 
 ## License
 
