@@ -92,6 +92,12 @@ Required environment/configuration variables:
     - Select the `Quote` tab, if needed
     - Create new `Quote` with `Ammount` greater than `10`
 
+    ![sample-crm-create-quote](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/9-sample-crm-create-quote.gif)
+
+    > After few seconds, "Quote Approval" mail should be recieved:
+
+    ![mail-recieved](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/mail-recieved.png)
+
 1. Update the mail message template
 
 ## Tips & Tricks
