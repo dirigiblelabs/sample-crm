@@ -85,7 +85,7 @@ Required environment/configuration variables:
 
     ![sample-crm-add-home-page](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/4-sample-crm-add-home-page.gif)
 
-## Process
+## BPM Process
 
 1. Overview:
     - Expand the `crm-quote-approval` and open the `quote-approval.bpmn` file
