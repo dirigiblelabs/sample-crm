@@ -87,7 +87,16 @@ Required environment/configuration variables:
 
 ## Process
 
-1. Trigger the `Quote Approval` process
+1. Overview:
+    - Expand the `crm-quote-approval` and open the `quote-approval.bpmn` file
+    - The process contains three steps and one flow condition:
+      - `StartProcessTask` - initial task to set the execution context
+      - `SendNotificationTask` - depending on the flow condition, the task is triggered when the `Quote -> Amount` is greaterr than `10` and mail notification is sent
+      - `AutoApproveTask` - auto approval of the created `Quote` if the `Amount` is less than `10`
+
+    ![sample-crm-process-overview](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/10-sample-crm-process-overview.gif)
+
+1. Trigger the `Quote Approval` process:
     - Navigate to the `Sales` section and select the `Quote` tile
     - Select the `Quote` tab, if needed
     - Create new `Quote` with `Ammount` greater than `10`
@@ -98,7 +107,51 @@ Required environment/configuration variables:
 
     ![mail-recieved](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/mail-recieved.png)
 
-1. Update the mail message template
+1. Update the mail message template:
+    - Expand the `crm-quote-approval` project and open the `mail.html` file
+    - Replace the file content with this one:
+    ```html
+        <!DOCTYPE html>
+
+        <head>
+        </head>
+
+        <body>
+            <h1>[Approve Quote] ${quoteAccount} - ${quoteProduct}</h1>
+            <hr>
+            <p>
+                <b>Account</b>: <i>${quoteAccount}</i>
+            </p>
+            <p>
+                <b>Product</b>: <i>${quoteProduct}</i>
+            </p>
+            <p>
+                <b>Discount</b>: <i>${quoteDiscount}</i>
+            </p>
+            <p>
+                <b>Quote Amount</b>: <i>${approveAmount}</i>
+            </p>
+            <br>
+            <a href="https://www.dirigible.io">Approve</a>
+        </body>
+
+        </html>
+    ```
+    - Create new `Quote` with `Amount` less than `10` to trigger the notification process with the updated mail template
+
+1. Update process:
+    - Other changes to `quote-approval.bpm` can be made, such as:
+      - Update the flow condition (e.g. change it to greater than `100`)
+      - Add new step(s)
+      - Add new flow condition(s)
+    - To apply the updated process follow these steps:
+      - Click on the `Save` icon
+      - Right click on the `crm-quote-approval` project and select `Publish` from the menu
+      - Wait around `30 sec.` before triggering the updated process
+    - Open the `Create Quote` listener:
+      - open the `quote-create.listener` file
+      - when `crm/Sales/Quote/Create` event is created, then the `crm-quote-approval/triggerApprovalProcess.js` handler will be triggered
+      - open the `triggerApprovalProcess.js` file to see how the `quote-approval` process is being started
 
 ## Tips & Tricks
 
