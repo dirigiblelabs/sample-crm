@@ -2,6 +2,7 @@
 
 [![Eclipse License](http://img.shields.io/badge/license-Eclipse-brightgreen.svg)](LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/sample-crm.svg)](https://github.com/dirigiblelabs/sample-crm/graphs/contributors)
+[![Run on Dirigible](https://img.shields.io/badge/run%20on-dirigible-blue.svg)](http://trial.dirigible.io/services/v4/web/ide-deploy-manager/?repository=https://github.com/dirigiblelabs/sample-crm.git&uri=/services/v4/web/crm/)
 
 ## Overview
 
@@ -24,6 +25,7 @@ Required environment/configuration variables:
 1. Setup Dirigible instance or use the trial one
     - https://www.dirigible.io/help/setup.html
     - https://www.dirigible.io -> `Try it Out`
+    - or click on the ![Run on Dirigible](https://img.shields.io/badge/run%20on-dirigible-blue.svg) button
 1. Clone the `Sample CRM` repository into your Dirigible instance:
     - Switch to the `Git` perspective
     - Click on the `+` button to clone Git repository
