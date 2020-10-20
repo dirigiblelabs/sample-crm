@@ -2,7 +2,7 @@
 
 [![Eclipse License](http://img.shields.io/badge/license-Eclipse-brightgreen.svg)](LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/dirigiblelabs/sample-crm.svg)](https://github.com/dirigiblelabs/sample-crm/graphs/contributors)
-[![Run on Dirigible](https://img.shields.io/badge/run%20on-dirigible-blue.svg)](http://trial.dirigible.io/services/v4/web/ide-deploy-manager/?repository=https://github.com/dirigiblelabs/sample-crm.git&uri=/services/v4/web/crm/)
+[![Run on Dirigible](https://img.shields.io/badge/run%20on-dirigible-blue.svg)](http://trial.dirigible.io/services/v4/web/ide-deploy-manager/?repository=https://github.com/dirigiblelabs/sample-crm.git&uri=/services/v4/web/ide/)
 
 ## Overview
 
