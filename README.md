@@ -32,7 +32,7 @@ Required environment/configuration variables:
     - Set the `URL` to https://github.com/dirigiblelabs/sample-crm.git
     - Click the `Clone` button
 
-    ![sample-crm-git-clone](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/1-sample-crm-git-clone.gif)
+    ![sample-crm-git-clone](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/1-sample-crm-git-clone.gif)
 
 1. Setup a mail configuration:
     - Expand the `crm-config` project
@@ -44,11 +44,11 @@ Required environment/configuration variables:
         var mailRecipient = "<the-mail-recipient>";
         ```
 
-        ![sample-crm-mail-config](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/8-sample-crm-mail-config.gif)
+        ![sample-crm-mail-config](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/8-sample-crm-mail-config.gif)
 
         > TIP: Since Google’s Gmail SMTP server is being used, you’ll have to make some adjustment to your Google security settings. You’ll have to turn on the “Less secure app access” so that this e-mail can go through to your inbox:
 
-        ![google_security_settings_border](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/google_security_settings_border.png)
+        ![google_security_settings_border](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/google_security_settings_border.png)
 
         > The first time, when mail is sent, a notification for "3rd party usage" in your Gmail mailbox will be sent, that needs to be confirmed.
 
@@ -66,7 +66,7 @@ Required environment/configuration variables:
     - Exit the `Properties` page
     - Save the model
 
-    ![sample-crm-add-field](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/2-sample-crm-add-field.gif)
+    ![sample-crm-add-field](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/2-sample-crm-add-field.gif)
 
 1. Re-generate the application:
     - Right click on the `model.model` file
@@ -77,7 +77,7 @@ Required environment/configuration variables:
         - Title: `CRM`
         - Brand: `CRM`
 
-    ![sample-crm-generate-application](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/3-sample-crm-generate-application.gif)
+    ![sample-crm-generate-application](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/3-sample-crm-generate-application.gif)
 
 1. Add sample data:
     - Expand the `crm` project and select the `index.html` file
@@ -85,7 +85,7 @@ Required environment/configuration variables:
     - Open the `Account` entity
     - Edit some of the account entries and enter the `HomePage` field
 
-    ![sample-crm-add-home-page](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/4-sample-crm-add-home-page.gif)
+    ![sample-crm-add-home-page](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/4-sample-crm-add-home-page.gif)
 
 ## BPM Process
 
@@ -96,18 +96,18 @@ Required environment/configuration variables:
       - `SendNotificationTask` - depending on the flow condition, the task is triggered when the `Quote -> Amount` is greaterr than `10` and mail notification is sent
       - `AutoApproveTask` - auto approval of the created `Quote` if the `Amount` is less than `10`
 
-    ![sample-crm-process-overview](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/10-sample-crm-process-overview.gif)
+    ![sample-crm-process-overview](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/10-sample-crm-process-overview.gif)
 
 1. Trigger the `Quote Approval` process:
     - Navigate to the `Sales` section and select the `Quote` tile
     - Select the `Quote` tab, if needed
     - Create new `Quote` with `Ammount` greater than `10`
 
-    ![sample-crm-create-quote](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/9-sample-crm-create-quote.gif)
+    ![sample-crm-create-quote](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/9-sample-crm-create-quote.gif)
 
     > After few seconds, "Quote Approval" mail should be recieved:
 
-    ![mail-recieved](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/mail-recieved.png)
+    ![mail-recieved](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/mail-recieved.png)
 
 1. Update the mail message template:
     - Expand the `crm-quote-approval` project and open the `mail.html` file
@@ -165,7 +165,7 @@ In some cases, when updating the Entity Domain Model (model.edm), incompatible c
 1. Re-generated the application from the updated `model.model`
 1. Publish the `crm` project
 
-![sample-crm-tips-and-tricks-1](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/5-sample-crm-tips-and-tricks-1.gif)
+![sample-crm-tips-and-tricks-1](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/5-sample-crm-tips-and-tricks-1.gif)
 
 In most cases, the previous steps should be enough to resolve issues from an incompatible change in the model. However, if incompatible change in the `Data` layer is made (e.g. `Null` -> `Not Null`, `VARCHAR` -> `INTEGER`, ...) then one addition step should be executed first:
 
@@ -180,14 +180,14 @@ Otherwise execute SQL queries, to drop the table(s), from the `SQL` view:
 drop table STUDENTS
 ```
 
-![sample-crm-tips-and-tricks-2](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/6-sample-crm-tips-and-tricks-2.gif)
+![sample-crm-tips-and-tricks-2](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/6-sample-crm-tips-and-tricks-2.gif)
 
 In some cases the generated application view(s) may disappear or be closed by accident. To reset the default layout follow these steps:
 
 1. Click on the "Themese" menu
 1. Select the "Reset" option
 
-![sample-crm-tips-and-tricks-3](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/7-sample-crm-tips-and-tricks-3.gif)
+![sample-crm-tips-and-tricks-3](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/7-sample-crm-tips-and-tricks-3.gif)
 
 ## License
 
